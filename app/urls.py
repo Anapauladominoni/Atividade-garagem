@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import include, path
+from core.views.acessorio import Acessorio
 from drf_spectacular.views import (
     SpectacularAPIView,
     SpectacularRedocView,
@@ -12,10 +13,11 @@ from rest_framework_simplejwt.views import (
     TokenVerifyView,
 )
 
-from core.views import UserRegistrationView, UserViewSet
+from core.views import UserRegistrationView, AcessorioViewSet,  UserViewSet
 
 router = DefaultRouter()
 
+router.register(r'acessorios', AcessorioViewSet, basename='acessorios')
 router.register(r'usuarios', UserViewSet, basename='usuarios')
 
 urlpatterns = [
